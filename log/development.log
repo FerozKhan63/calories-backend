@@ -1,0 +1,790 @@
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDeviseToUsers (20230103072141)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDeviseToUsers (20230103072141)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDeviseToUsers (20230103072141)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (200.2ms)[0m  [1m[35mCREATE DATABASE "calories_development" ENCODING = 'utf8'[0m
+  [1m[35m (90.5ms)[0m  [1m[35mCREATE DATABASE "calories_test" ENCODING = 'utf8'[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8654773016610501900)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDeviseToUsers (20230103072141)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying DEFAULT '' NOT NULL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8654773016610501900)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8654773016610501900)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDeviseUsers (20230103072141)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (133.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "roles" character varying DEFAULT '', "first_name" character varying, "last_name" character varying, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6))[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230103072141"]]
+  [1m[36mTRANSACTION (40.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (41.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-03 07:39:27.307705"], ["updated_at", "2023-01-03 07:39:27.307705"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8654773016610501900)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:01:27 +0500
+  
+NoMethodError (undefined method `namesapce' for #<ActionDispatch::Routing::Mapper:0x00007fd7d21e2ad8>
+Did you mean?  namespace):
+  
+config/routes.rb:8:in `block (2 levels) in <main>'
+config/routes.rb:7:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:01:44 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/session/signup"):
+  
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:01:58 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 2227)
+
+
+  
+NoMethodError (undefined method `set_current_user' for #<Api::V1::SessionsController:0x0000000000a118>
+Did you mean?  set_current_consumer):
+  
+activesupport (7.0.4) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.4) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.4) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.4) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.4) lib/active_support/callbacks.rb:106:in `run_callbacks'
+actionpack (7.0.4) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4) lib/abstract_controller/base.rb:151:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.5) lib/rack/etag.rb:27:in `call'
+rack (2.2.5) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.5) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.5) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.5) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:02:26 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1769)
+
+
+  
+NameError (uninitialized constant ApplicationController::Current):
+  
+app/controllers/application_controller.rb:12:in `set_current_user'
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:03:48 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms | Allocations: 23045)
+
+
+  
+NameError (undefined local variable or method `user' for #<Api::V1::SessionsController:0x00000000012688>
+Did you mean?  super):
+  
+app/controllers/api/v1/sessions_controller.rb:5:in `signup'
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:04:32 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mUser Exists? (42.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "roles", "first_name", "last_name", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "feroz@gmail.com"], ["encrypted_password", "[FILTERED]"], ["roles", ""], ["first_name", "Feroz"], ["last_name", "Khan"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+Completed 500 Internal Server Error in 317ms (ActiveRecord: 48.9ms | Allocations: 23973)
+
+
+  
+NoMethodError (undefined method `created_at' for #<User:0x00007fd7d1901068>):
+  
+app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:04:50 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+Completed 500 Internal Server Error in 249ms (ActiveRecord: 3.1ms | Allocations: 6663)
+
+
+  
+NameError (uninitialized constant Api::V1::SessionsController::ExceptionHandler):
+  
+app/controllers/api/v1/sessions_controller.rb:10:in `signup'
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:05:36 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+Completed 500 Internal Server Error in 241ms (ActiveRecord: 0.5ms | Allocations: 3803)
+
+
+  
+NameError (uninitialized constant Api::V1::SessionsController::ExceptionHandler):
+  
+app/controllers/api/v1/sessions_controller.rb:10:in `signup'
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:05:58 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+Completed 204 No Content in 249ms (ActiveRecord: 4.6ms | Allocations: 4856)
+
+
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:06:05 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+Completed 500 Internal Server Error in 246ms (ActiveRecord: 3.1ms | Allocations: 6645)
+
+
+  
+NameError (uninitialized constant Api::V1::SessionsController::ExceptionHandler):
+  
+app/controllers/api/v1/sessions_controller.rb:10:in `signup'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:09:42 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+Completed 500 Internal Server Error in 246ms (ActiveRecord: 3.1ms | Allocations: 6638)
+
+
+  
+NameError (uninitialized constant Api::V1::SessionsController::ExceptionHandler):
+  
+app/controllers/api/v1/sessions_controller.rb:10:in `signup'
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:20:19 +0500
+  
+SyntaxError (/Users/apple/www/projects/calories-demo-backend/app/controllers/api/v1/sessions_controller.rb:21: syntax error, unexpected tLABEL, expecting ')'
+...   @user = User.find_by (email: params[:email])
+...                         ^~~~~~
+/Users/apple/www/projects/calories-demo-backend/app/controllers/api/v1/sessions_controller.rb:21: syntax error, unexpected ')', expecting `end'
+...find_by (email: params[:email])
+...                              ^
+):
+  
+app/controllers/api/v1/sessions_controller.rb:21: syntax error, unexpected tLABEL, expecting ')'
+app/controllers/api/v1/sessions_controller.rb:21: syntax error, unexpected ')', expecting `end'
+app/controllers/api/v1/sessions_controller.rb:21: syntax error, unexpected tLABEL, expecting ')'
+app/controllers/api/v1/sessions_controller.rb:21: syntax error, unexpected ')', expecting `end'
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:21:04 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+Completed 500 Internal Server Error in 259ms (ActiveRecord: 8.2ms | Allocations: 9181)
+
+
+  
+NameError (uninitialized constant Api::V1::SessionsController::ExceptionHandler):
+  
+app/controllers/api/v1/sessions_controller.rb:10:in `signup'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:22:27 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "roles", "first_name", "last_name", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "feroz@gmail.com"], ["encrypted_password", "[FILTERED]"], ["roles", ""], ["first_name", "Feroz"], ["last_name", "Khan"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+Completed 500 Internal Server Error in 259ms (ActiveRecord: 12.0ms | Allocations: 7622)
+
+
+  
+NameError (undefined local variable or method `byebug' for #<Api::V1::SessionsController:0x00000000034968>):
+  
+app/controllers/api/v1/sessions_controller.rb:33:in `auth_token'
+app/controllers/api/v1/sessions_controller.rb:46:in `user_success_response'
+app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:23:38 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "roles", "first_name", "last_name", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "feroz@gmail.com"], ["encrypted_password", "[FILTERED]"], ["roles", ""], ["first_name", "Feroz"], ["last_name", "Khan"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+Completed 500 Internal Server Error in 258ms (ActiveRecord: 9.0ms | Allocations: 7606)
+
+
+  
+NameError (undefined local variable or method `debug' for #<Api::V1::SessionsController:0x00000000038e50>
+Did you mean?  debugger):
+  
+app/controllers/api/v1/sessions_controller.rb:33:in `auth_token'
+app/controllers/api/v1/sessions_controller.rb:46:in `user_success_response'
+app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:23:54 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `signup'
+Completed 500 Internal Server Error in 251ms (ActiveRecord: 3.6ms | Allocations: 6658)
+
+
+  
+NameError (uninitialized constant Api::V1::SessionsController::ExceptionHandler):
+  
+app/controllers/api/v1/sessions_controller.rb:10:in `signup'
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:28:10 +0500
+  
+Zeitwerk::NameError (expected file /Users/apple/www/projects/calories-demo-backend/app/controllers/api/v1/sessions_controller.rb to define constant Api::V1::SessionsController, but didn't):
+  
+zeitwerk (2.6.6) lib/zeitwerk/loader/callbacks.rb:25:in `on_file_autoloaded'
+zeitwerk (2.6.6) lib/zeitwerk/kernel.rb:31:in `require'
+activesupport (7.0.4) lib/active_support/inflector/methods.rb:280:in `const_get'
+activesupport (7.0.4) lib/active_support/inflector/methods.rb:280:in `constantize'
+activesupport (7.0.4) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (7.0.4) lib/action_dispatch/http/request.rb:90:in `controller_class_for'
+actionpack (7.0.4) lib/action_dispatch/request/utils.rb:95:in `action_encoding_template'
+actionpack (7.0.4) lib/action_dispatch/request/utils.rb:83:in `encode'
+actionpack (7.0.4) lib/action_dispatch/request/utils.rb:45:in `set_binary_encoding'
+actionpack (7.0.4) lib/action_dispatch/http/parameters.rb:68:in `path_parameters='
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:48:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.5) lib/rack/etag.rb:27:in `call'
+rack (2.2.5) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.5) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.5) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.5) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:28:20 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2391)
+
+
+  
+NameError (undefined local variable or method `deugger' for #<Api::V1::SessionsController:0x00000000045c40>
+Did you mean?  debugger):
+  
+app/controllers/api/v1/sessions_controller.rb:5:in `signup'
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:28:32 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+Completed 500 Internal Server Error in 23711ms (ActiveRecord: 3.1ms | Allocations: 192371)
+
+
+  
+NameError (uninitialized constant Api::V1::SessionsController::ExceptionHandler):
+  
+app/controllers/api/v1/sessions_controller.rb:11:in `signup'
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:29:15 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+Completed 500 Internal Server Error in 3081ms (ActiveRecord: 3.5ms | Allocations: 156397)
+
+
+  
+NameError (uninitialized constant Api::V1::SessionsController::ExceptionHandler):
+  
+app/controllers/api/v1/sessions_controller.rb:12:in `signup'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:29:33 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mUser Create (6.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "roles", "first_name", "last_name", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "feroz@gmail.com"], ["encrypted_password", "[FILTERED]"], ["roles", ""], ["first_name", "Feroz"], ["last_name", "Khan"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+[31mUnpermitted parameters: :first_name, :last_name, :password_confirmation. Context: { controller: Api::V1::SessionsController, action: signup, request: #<ActionDispatch::Request:0x00007fd7c82c3e20>, params: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"api/v1/sessions", "action"=>"signup"} }[0m
+[31mUnpermitted parameters: :first_name, :last_name, :password_confirmation. Context: { controller: Api::V1::SessionsController, action: signup, request: #<ActionDispatch::Request:0x00007fd7c82c3e20>, params: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"api/v1/sessions", "action"=>"signup"} }[0m
+[31mUnpermitted parameters: :first_name, :last_name, :password_confirmation. Context: { controller: Api::V1::SessionsController, action: signup, request: #<ActionDispatch::Request:0x00007fd7c82c3e20>, params: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"api/v1/sessions", "action"=>"signup"} }[0m
+Completed 500 Internal Server Error in 65196ms (ActiveRecord: 7.5ms | Allocations: 498365)
+
+
+  
+NoMethodError (undefined method `authenticate' for #<Class:0x00007fd7d1d858c8>
+Did you mean?  authentication_keys):
+  
+app/lib/authenticate_user.rb:19:in `user'
+app/lib/authenticate_user.rb:12:in `call'
+app/controllers/api/v1/sessions_controller.rb:36:in `auth_token'
+app/controllers/api/v1/sessions_controller.rb:48:in `user_success_response'
+app/controllers/api/v1/sessions_controller.rb:10:in `signup'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:32:10 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "roles", "first_name", "last_name", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "feroz@gmail.com"], ["encrypted_password", "[FILTERED]"], ["roles", ""], ["first_name", "Feroz"], ["last_name", "Khan"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+[31mUnpermitted parameters: :first_name, :last_name, :password_confirmation. Context: { controller: Api::V1::SessionsController, action: signup, request: #<ActionDispatch::Request:0x00007fd7d20b4210>, params: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"api/v1/sessions", "action"=>"signup"} }[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `authenticate'
+Completed 500 Internal Server Error in 6548ms (ActiveRecord: 9.8ms | Allocations: 442700)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/lib/authenticate_user.rb:12:in `call'
+app/controllers/api/v1/sessions_controller.rb:36:in `auth_token'
+app/controllers/api/v1/sessions_controller.rb:48:in `user_success_response'
+app/controllers/api/v1/sessions_controller.rb:10:in `signup'
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:41:08 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+Completed 500 Internal Server Error in 8515ms (ActiveRecord: 8.5ms | Allocations: 159519)
+
+
+  
+NameError (uninitialized constant Api::V1::SessionsController::ExceptionHandler):
+  
+app/controllers/api/v1/sessions_controller.rb:12:in `signup'
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:42:22 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+Completed 500 Internal Server Error in 2699ms (ActiveRecord: 6.1ms | Allocations: 156191)
+
+
+  
+NoMethodError (undefined method `rendor' for #<Api::V1::SessionsController:0x0000000005bf68>
+Did you mean?  render):
+  
+app/controllers/api/v1/sessions_controller.rb:12:in `signup'
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 10:42:35 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+Completed 200 OK in 1607ms (Views: 0.1ms | ActiveRecord: 3.4ms | Allocations: 154084)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 5]]
+  [1m[36mTRANSACTION (40.7ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 11:22:38 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "roles", "first_name", "last_name", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "feroz@gmail.com"], ["encrypted_password", "[FILTERED]"], ["roles", ""], ["first_name", "Feroz"], ["last_name", "Khan"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+[31mUnpermitted parameters: :first_name, :last_name, :password_confirmation. Context: { controller: Api::V1::SessionsController, action: signup, request: #<ActionDispatch::Request:0x00007fd7cd860090>, params: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"api/v1/sessions", "action"=>"signup"} }[0m
+Completed 500 Internal Server Error in 6866ms (ActiveRecord: 15.0ms | Allocations: 443463)
+
+
+  
+NameError (undefined local variable or method `email' for #<AuthenticateUser:0x00007fd7d2173c28>
+Did you mean?  @email):
+  
+app/lib/authenticate_user.rb:20:in `user'
+app/lib/authenticate_user.rb:13:in `call'
+app/controllers/api/v1/sessions_controller.rb:36:in `auth_token'
+app/controllers/api/v1/sessions_controller.rb:48:in `user_success_response'
+app/controllers/api/v1/sessions_controller.rb:10:in `signup'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 6]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 11:23:09 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "roles", "first_name", "last_name", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "feroz@gmail.com"], ["encrypted_password", "[FILTERED]"], ["roles", ""], ["first_name", "Feroz"], ["last_name", "Khan"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+[31mUnpermitted parameters: :first_name, :last_name, :password_confirmation. Context: { controller: Api::V1::SessionsController, action: signup, request: #<ActionDispatch::Request:0x00007fd7ccbf5ad0>, params: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"api/v1/sessions", "action"=>"signup"} }[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `authenticate'
+Completed 200 OK in 4497ms (Views: 0.2ms | ActiveRecord: 14.9ms | Allocations: 441311)
+
+
+Started POST "/api/v1/session/signup?first_name=Feroz&last_name=Khan&email=feroz@gmail.com&password=[FILTERED]&password_confirmation=[FILTERED]" for ::1 at 2023-01-05 11:23:36 +0500
+Processing by Api::V1::SessionsController#signup as */*
+  Parameters: {"first_name"=>"Feroz", "last_name"=>"Khan", "email"=>"feroz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `signup'
+Completed 200 OK in 2832ms (Views: 0.2ms | ActiveRecord: 5.2ms | Allocations: 154507)
+
+
+Started GET "/api/v1/session?email=feroz@gmail.com&password=[FILTERED]" for ::1 at 2023-01-05 11:24:50 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/session"):
+  
+Started POST "/api/v1/session?email=feroz@gmail.com&password=[FILTERED]" for ::1 at 2023-01-05 11:24:56 +0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"feroz@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `authenticate'
+Completed 500 Internal Server Error in 288ms (ActiveRecord: 4.0ms | Allocations: 3955)
+
+
+  
+NameError (uninitialized constant #<Class:JsonWebToken>::ExceptionHandler):
+  
+app/lib/json_web_token.rb:10:in `decode'
+app/controllers/api/v1/sessions_controller.rb:15:in `create'
+Started POST "/api/v1/session?email=feroz@gmail.com&password=[FILTERED]" for ::1 at 2023-01-05 11:25:01 +0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"feroz@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `authenticate'
+Completed 500 Internal Server Error in 301ms (ActiveRecord: 0.6ms | Allocations: 891)
+
+
+  
+NameError (uninitialized constant #<Class:JsonWebToken>::ExceptionHandler):
+  
+app/lib/json_web_token.rb:10:in `decode'
+app/controllers/api/v1/sessions_controller.rb:15:in `create'
+Started POST "/api/v1/session?email=feroz@gmail.com&password=[FILTERED]" for ::1 at 2023-01-05 11:33:48 +0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"feroz@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `authenticate'
+Completed 500 Internal Server Error in 373ms (ActiveRecord: 12.9ms | Allocations: 6569)
+
+
+  
+NameError (uninitialized constant #<Class:JsonWebToken>::ExceptionHandler):
+  
+app/lib/json_web_token.rb:10:in `decode'
+app/controllers/api/v1/sessions_controller.rb:15:in `create'
+Started POST "/api/v1/session?email=feroz@gmail.com&password=[FILTERED]" for ::1 at 2023-01-05 11:44:26 +0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"feroz@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `authenticate'
+Completed 500 Internal Server Error in 256ms (ActiveRecord: 6.6ms | Allocations: 6474)
+
+
+  
+TypeError (exception class/object expected):
+  
+app/lib/json_web_token.rb:14:in `raise'
+app/lib/json_web_token.rb:14:in `rescue in decode'
+app/lib/json_web_token.rb:10:in `decode'
+app/controllers/api/v1/sessions_controller.rb:15:in `create'
+Started POST "/api/v1/session?email=feroz@gmail.com&password=[FILTERED]" for ::1 at 2023-01-05 11:45:08 +0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"feroz@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `authenticate'
+Completed 500 Internal Server Error in 247ms (ActiveRecord: 5.6ms | Allocations: 3976)
+
+
+  
+Exception (No verification key available):
+  
+app/lib/json_web_token.rb:14:in `rescue in decode'
+app/lib/json_web_token.rb:10:in `decode'
+app/controllers/api/v1/sessions_controller.rb:15:in `create'
+Started POST "/api/v1/session?email=feroz@gmail.com&password=[FILTERED]" for ::1 at 2023-01-05 11:48:33 +0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"feroz@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `authenticate'
+Completed 500 Internal Server Error in 236ms (ActiveRecord: 0.2ms | Allocations: 888)
+
+
+  
+Exception (No verification key available):
+  
+app/lib/json_web_token.rb:14:in `rescue in decode'
+app/lib/json_web_token.rb:10:in `decode'
+app/controllers/api/v1/sessions_controller.rb:15:in `create'
+Started POST "/api/v1/session?email=feroz@gmail.com&password=[FILTERED]" for ::1 at 2023-01-05 11:49:44 +0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"feroz@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `authenticate'
+Completed 500 Internal Server Error in 252ms (ActiveRecord: 3.3ms | Allocations: 3978)
+
+
+  
+Exception (No verification key available):
+  
+app/lib/json_web_token.rb:15:in `rescue in decode'
+app/lib/json_web_token.rb:10:in `decode'
+app/controllers/api/v1/sessions_controller.rb:15:in `create'
+Started POST "/api/v1/session?email=feroz@gmail.com&password=[FILTERED]" for ::1 at 2023-01-05 11:50:17 +0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"feroz@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `authenticate'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `authenticate'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `authenticate'
+Completed 500 Internal Server Error in 39392ms (ActiveRecord: 3.5ms | Allocations: 242679)
+
+
+  
+Exception (No verification key available):
+  
+app/lib/json_web_token.rb:14:in `rescue in decode'
+app/lib/json_web_token.rb:10:in `decode'
+app/controllers/api/v1/sessions_controller.rb:16:in `create'
+Started POST "/api/v1/session?email=feroz@gmail.com&password=[FILTERED]" for ::1 at 2023-01-05 12:00:17 +0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"feroz@gmail.com", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 4861ms (ActiveRecord: 0.0ms | Allocations: 153930)
+
+
+  
+NameError (undefined local variable or method `byebug' for #<Class:0x00007fd7d2350280>):
+  
+app/models/user.rb:9:in `authenticate'
+app/lib/authenticate_user.rb:19:in `user'
+app/lib/authenticate_user.rb:12:in `call'
+app/controllers/api/v1/sessions_controller.rb:24:in `auth_token'
+app/controllers/api/v1/sessions_controller.rb:16:in `create'
+Started POST "/api/v1/session?email=feroz@gmail.com&password=[FILTERED]" for ::1 at 2023-01-05 12:00:49 +0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"feroz@gmail.com", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 4226ms (ActiveRecord: 0.0ms | Allocations: 147272)
+
+
+  
+NameError (undefined local variable or method `byebug' for #<Class:0x00007fd7d2350280>):
+  
+app/models/user.rb:9:in `authenticate'
+app/lib/authenticate_user.rb:19:in `user'
+app/lib/authenticate_user.rb:12:in `call'
+app/controllers/api/v1/sessions_controller.rb:24:in `auth_token'
+app/controllers/api/v1/sessions_controller.rb:16:in `create'
+Started POST "/api/v1/session?email=feroz@gmail.com&password=[FILTERED]" for ::1 at 2023-01-05 12:01:10 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"feroz@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ (byebug):1:in `authenticate'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10:in `authenticate'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:16:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ (byebug):1:in `authenticate'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10:in `authenticate'
+Completed 500 Internal Server Error in 45061ms (ActiveRecord: 5.5ms | Allocations: 144920)
+
+
+  
+NameError (undefined local variable or method `subscription_details' for #<Api::V1::SessionsController:0x0000000000a1e0>):
+  
+app/controllers/api/v1/sessions_controller.rb:18:in `create'
+Started POST "/api/v1/session?email=feroz@gmail.com&password=[FILTERED]" for ::1 at 2023-01-05 12:02:31 +0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"feroz@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10:in `authenticate'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:16:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10:in `authenticate'
+Completed 200 OK in 6076ms (Views: 0.2ms | ActiveRecord: 3.5ms | Allocations: 10148)
+
+
+Started POST "/api/v1/session?email=feroz@gmail.com&password=[FILTERED]" for ::1 at 2023-01-05 12:26:24 +0500
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"feroz@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `authenticate'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:15:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "feroz@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `authenticate'
+Completed 200 OK in 530ms (Views: 0.2ms | ActiveRecord: 48.8ms | Allocations: 7737)
+
+
