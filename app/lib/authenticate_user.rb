@@ -9,7 +9,7 @@ class AuthenticateUser
   end
 
   def call
-    'Invalid Credentials' if user.blank?
+    Exception.new('Invalid Credentials') if user.blank?
 
     expiration_time = remember_me? && 1.year.from_now || 24.hours.from_now
     JsonWebToken.encode({ user_id: user.id }, expiration_time)
