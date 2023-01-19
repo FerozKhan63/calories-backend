@@ -9,7 +9,7 @@ class AuthorizeUser
     user
   end
 
-  def consumer
+  def user
     @user ||= User.find(JsonWebToken.decode(token)[:user_id])
   end
 end
