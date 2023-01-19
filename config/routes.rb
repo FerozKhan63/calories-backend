@@ -9,6 +9,12 @@ Rails.application.routes.draw do
       resource :session, only: %i[create] do
         post :signup, on: :collection
       end
+
+      resource :users, only: %i[update show] do
+        collection do
+          get :show_profile
+        end
+      end
     end
   end
 end

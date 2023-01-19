@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::API
-
-  before_action :authenticate_user!
   before_action :set_current_user
+  before_action :authenticate_user!
 
   attr_reader :current_user
 
@@ -13,6 +12,6 @@ class ApplicationController < ActionController::API
   end
 
   def authenticate_user!
-    raise ExceptionHandler::MissingToken, Message.missing_token if current_user.blank?
+    raise Exception.new("Please login to continue.") if current_user.blank?
   end
 end
