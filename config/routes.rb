@@ -15,6 +15,8 @@ Rails.application.routes.draw do
           get :show_profile
         end
       end
+
+      resources :meals, except: %i[edit new]
     end
   end
 end
