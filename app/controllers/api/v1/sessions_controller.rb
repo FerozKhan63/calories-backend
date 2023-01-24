@@ -7,14 +7,18 @@ class Api::V1::SessionsController < ApplicationController
     if @user.save
       render json: user_success_response
     else
-      render json: { message: 'Error creating user.' }
+      render json: { message: @user.errors.to_a}, status: :forbidden
     end
   end
 
   def create
-    @user = User.find(JsonWebToken.decode(auth_token)[:user_id])
+    if auth_token
+      @user = User.find(JsonWebToken.decode(auth_token)[:user_id])
 
-    render json: user_success_response
+      render json: user_success_response
+    else
+      render json: {message: "Invalid Credentials"}, status: :forbidden
+    end
   end
 
   private

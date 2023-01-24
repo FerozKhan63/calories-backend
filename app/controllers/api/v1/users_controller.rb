@@ -9,7 +9,7 @@ class Api::V1::UsersController < ApplicationController
     if @user.update(user_params)
       render json: 'Profile updated successfully'
     else
-      render json: 'Something Went Wrong'
+      render json: { error: @user.errors.to_a }, status: :forbidden
     end
   end
 
