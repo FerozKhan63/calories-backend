@@ -1,5 +1,5 @@
 class Api::V1::MealsController < ApplicationController
-  before_action :set_meal, only: [:show, :update]
+  before_action :set_meal, only: [:show, :update, :destroy]
   
   def index
     @meals = current_user.meals
@@ -33,7 +33,7 @@ class Api::V1::MealsController < ApplicationController
     if @meal.destroy!
       render json: {message: 'Meal deleted'}
     else
-      raise Exception.new(@meal.errors, 'Something went wrong')
+       render json: { message: @meal.errors.to_a }, status: :forbidden
     end
   end
 
